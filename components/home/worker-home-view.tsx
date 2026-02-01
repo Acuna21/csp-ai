@@ -1,6 +1,7 @@
 "use client"
 
-import { Search, Bell, Settings, AlertTriangle, Clock, CheckCircle2, ChevronRight, Filter, User } from "lucide-react"
+import { Search, Bell, Settings, AlertTriangle, Clock, CheckCircle2, ChevronRight, Filter, User, Plus } from "lucide-react"
+import Link from "next/link"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -111,22 +112,35 @@ export function WorkerHomeView() {
       </header>
 
       <main className="px-4 py-4 space-y-6">
-        {/* Search Bar */}
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <Input
-            type="search"
-            placeholder="Buscar reportes, estudiantes..."
-            className="pl-10 h-12 bg-card border-border"
-          />
-          <Button 
-            size="icon" 
-            variant="ghost" 
-            className="absolute right-1 top-1/2 -translate-y-1/2 h-10 w-10"
-          >
-            <Filter className="h-4 w-4 text-muted-foreground" />
-            <span className="sr-only">Filtrar</span>
-          </Button>
+        {/* Search Bar and Create Button */}
+        <div className="space-y-3">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              type="search"
+              placeholder="Buscar reportes, estudiantes..."
+              className="pl-10 h-12 bg-card border-border"
+            />
+            <Button 
+              size="icon" 
+              variant="ghost" 
+              className="absolute right-1 top-1/2 -translate-y-1/2 h-10 w-10"
+            >
+              <Filter className="h-4 w-4 text-muted-foreground" />
+              <span className="sr-only">Filtrar</span>
+            </Button>
+          </div>
+          
+          {/* Create Report Button */}
+          <Link href="/report/create" className="block">
+            <Button 
+              className="w-full h-11 font-semibold gap-2"
+              style={{ backgroundColor: '#D31219' }}
+            >
+              <Plus className="h-5 w-5" />
+              Crear Nuevo Reporte
+            </Button>
+          </Link>
         </div>
 
         {/* Reportes Section - Table Format */}
