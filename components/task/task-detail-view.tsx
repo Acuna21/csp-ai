@@ -13,86 +13,90 @@ import Link from "next/link"
 
 // Mock data - replace with actual data from DB/API
 const mockTask = {
-  id: "TASK-001",
-  title: "Problema con matrícula de estudiante",
-  lastUpdated: new Date("2024-01-15T14:30:00"),
+  id: "INC-2024-001",
+  title: "Puerta del aula 301 dañada",
+  createdAt: new Date("2024-01-15T09:00:00"),
+  updatedAt: new Date("2024-01-15T14:30:00"),
   lastUpdatedBy: "Laura Rodríguez",
-  tags: ["Urgente", "Matrícula", "Académico"],
+  tags: ["Infraestructura", "Urgente", "Mantenimiento"],
+  reportedBy: {
+    name: "María González",
+    avatar: "MG",
+    email: "maria.gonzalez@universidad.edu"
+  },
   assignedTo: {
     name: "Juan Pérez García",
     avatar: "JP",
-    role: "Coordinador"
+    role: "Coordinador de Mantenimiento",
+    department: "Área de Infraestructura"
   },
-  status: "in-progress",
-  progress: 65,
-  criticality: "critical",
-  description: "El estudiante María González reporta que no puede completar su matrícula para el semestre 2024-2. Ha intentado múltiples veces pero el sistema no acepta su solicitud. Necesita resolver esto antes del 20 de enero.",
+  location: {
+    space: "Aula 301",
+    floor: "3",
+    detail: "Pared derecha, cerca de la ventana"
+  },
+  status: "EN_PROCESO",
+  priority: "ALTA",
+  impact: "MEDIO",
+  weight: 7,
+  description: "La puerta del aula 301 presenta una grieta en el marco y hace ruido al abrirse. Esto afecta la concentración de los estudiantes durante las clases y representa un riesgo potencial de seguridad. Se requiere reparación urgente.",
   attachments: [
-    { id: "1", name: "Captura de pantalla error.png", size: "2.4 MB", type: "image" },
-    { id: "2", name: "Documento de identidad.pdf", size: "1.8 MB", type: "document" },
+    { id: "1", name: "Foto_puerta_dañada.jpg", size: "2.4 MB", type: "image" },
+    { id: "2", name: "Reporte_técnico.pdf", size: "1.8 MB", type: "document" },
   ],
   history: [
     {
       id: "h1",
-      action: "Actualizado",
-      details: "Cambió el estado a 'En Progreso'",
+      action: "Cambio de Estado",
+      details: "Estado cambió de 'ABIERTO' a 'EN_PROCESO'",
       by: "Laura Rodríguez",
       timestamp: new Date("2024-01-15T14:30:00"),
       avatar: "LR"
     },
     {
       id: "h2",
-      action: "Asignado",
-      details: "Tarea asignada a Juan Pérez García",
+      action: "Asignación",
+      details: "Incidencia asignada a Juan Pérez García - Área de Infraestructura",
       by: "Sistema",
       timestamp: new Date("2024-01-15T10:00:00"),
       avatar: "SYS"
     },
     {
       id: "h3",
-      action: "Creado",
-      details: "Tarea creada desde reporte",
-      by: "María García",
+      action: "Creación",
+      details: "Incidencia creada desde reporte de estudiante",
+      by: "María González",
       timestamp: new Date("2024-01-15T09:00:00"),
       avatar: "MG"
     }
   ],
   subtasks: [
-    { id: "st1", title: "Verificar datos de estudiante en sistema", completed: true },
-    { id: "st2", title: "Contactar estudiante para información adicional", completed: true },
-    { id: "st3", title: "Escalar a departamento de IT", completed: false },
-    { id: "st4", title: "Confirmar resolución con estudiante", completed: false },
+    { id: "st1", title: "Evaluar daño de la puerta", completed: true },
+    { id: "st2", title: "Ordenar materiales necesarios", completed: true },
+    { id: "st3", title: "Reparar marco y bisagras", completed: false },
+    { id: "st4", title: "Verificar funcionamiento correcto", completed: false },
   ]
 }
 
-const criticalityConfig: Record<string, { label: string; color: string; bgColor: string }> = {
-  critical: {
-    label: "Crítico",
-    color: "#D31219",
-    bgColor: "rgba(211, 18, 25, 0.1)"
-  },
-  medium: {
-    label: "Medio",
-    color: "#B28A12",
-    bgColor: "rgba(178, 138, 18, 0.1)"
-  },
-  low: {
-    label: "Bajo",
-    color: "#2D8A3C",
-    bgColor: "rgba(45, 138, 60, 0.1)"
-  }
+const priorityConfig: Record<string, { label: string; color: string; bgColor: string }> = {
+  BAJA: { label: "Baja", color: "#2D8A3C", bgColor: "rgba(45, 138, 60, 0.1)" },
+  MEDIA: { label: "Media", color: "#B28A12", bgColor: "rgba(178, 138, 18, 0.1)" },
+  ALTA: { label: "Alta", color: "#D31219", bgColor: "rgba(211, 18, 25, 0.1)" },
+  CRÍTICA: { label: "Crítica", color: "#8B0000", bgColor: "rgba(139, 0, 0, 0.1)" },
 }
 
 const statusConfig: Record<string, { label: string; color: string; bgColor: string }> = {
-  pending: { label: "Pendiente", color: "#B28A12", bgColor: "rgba(178, 138, 18, 0.1)" },
-  "in-progress": { label: "En Progreso", color: "#D31219", bgColor: "rgba(211, 18, 25, 0.1)" },
-  completed: { label: "Completado", color: "#2D8A3C", bgColor: "rgba(45, 138, 60, 0.1)" },
-  "on-hold": { label: "En Espera", color: "#6B7280", bgColor: "rgba(107, 114, 128, 0.1)" },
+  ABIERTO: { label: "Abierto", color: "#B28A12", bgColor: "rgba(178, 138, 18, 0.1)" },
+  EN_PROCESO: { label: "En Proceso", color: "#D31219", bgColor: "rgba(211, 18, 25, 0.1)" },
+  PAUSADO: { label: "Pausado", color: "#6B7280", bgColor: "rgba(107, 114, 128, 0.1)" },
+  RESUELTO: { label: "Resuelto", color: "#2D8A3C", bgColor: "rgba(45, 138, 60, 0.1)" },
+  CERRADO: { label: "Cerrado", color: "#000000", bgColor: "rgba(0, 0, 0, 0.1)" },
+  CANCELADO: { label: "Cancelado", color: "#6B7280", bgColor: "rgba(107, 114, 128, 0.1)" },
 }
 
 export function TaskDetailView({ taskId }: { taskId: string }) {
   const task = mockTask
-  const criticality = criticalityConfig[task.criticality]
+  const priority = priorityConfig[task.priority] || priorityConfig.MEDIA
   const status = statusConfig[task.status]
 
   const formatDate = (date: Date) => {
@@ -195,7 +199,7 @@ export function TaskDetailView({ taskId }: { taskId: string }) {
 
           {/* Tab 1: General */}
           <TabsContent value="general" className="space-y-6">
-            <TaskGeneralTab task={task} criticality={criticality} status={status} />
+            <TaskGeneralTab task={task} priority={priority} status={status} />
           </TabsContent>
 
           {/* Tab 2: Subtasks */}
