@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, ImageIcon, FormIcon } from "lucide-react"
+import { ArrowLeft, ImageIcon, FileText } from "lucide-react"
 import Link from "next/link"
 import { SimpleReportForm } from "./simple-report-form"
 import { AIReportForm } from "./ai-report-form"
@@ -50,7 +50,7 @@ export function ReportCreationOptions() {
                   className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
                   style={{ backgroundColor: "rgba(211, 18, 25, 0.1)" }}
                 >
-                  <FormIcon className="h-6 w-6" style={{ color: "#D31219" }} />
+                  <FileText className="h-6 w-6" style={{ color: "#D31219" }} />
                 </div>
                 <div className="flex-1">
                   <CardTitle className="text-lg">Formulario Rápido</CardTitle>
