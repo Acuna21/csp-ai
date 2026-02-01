@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata } from 'next'
 import { Inter, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { MainNav } from '@/components/navigation/main-nav'
 import './globals.css'
 
 const _inter = Inter({ subsets: ["latin"] });
@@ -38,7 +39,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans antialiased`}>
-        {children}
+        <MainNav />
+        <main className="md:pt-0 pb-20 md:pb-0">
+          {children}
+        </main>
         <Analytics />
       </body>
     </html>
