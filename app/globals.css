@@ -1,0 +1,281 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* =====================================================
+   SISTEMA DE DISEÑO - UNIVERSIDAD LIBRE
+   App de Reportes Universitarios
+   ===================================================== */
+
+:root {
+  /* Colores de Marca (Brand) - Universidad Libre */
+  --brand-primary: #D31219;
+  --brand-secondary: #000000;
+  --brand-accent: #B28A12;
+  
+  /* Colores Semánticos */
+  --success: #2D8A3C;
+  --success-foreground: #FFFFFF;
+  --warning: #B28A12;
+  --warning-foreground: #FFFFFF;
+  --error: #D31219;
+  --error-foreground: #FFFFFF;
+  
+  /* Superficies y Fondos */
+  --background: #F7F7F7;
+  --foreground: #000000;
+  --card: #FFFFFF;
+  --card-foreground: #000000;
+  --popover: #FFFFFF;
+  --popover-foreground: #000000;
+  
+  /* Sistema de Colores Primarios */
+  --primary: #D31219;
+  --primary-foreground: #FFFFFF;
+  --secondary: #000000;
+  --secondary-foreground: #FFFFFF;
+  --accent: #B28A12;
+  --accent-foreground: #FFFFFF;
+  
+  /* Estados y Feedback */
+  --muted: #F7F7F7;
+  --muted-foreground: #6B7280;
+  --destructive: #D31219;
+  --destructive-foreground: #FFFFFF;
+  
+  /* Bordes e Inputs */
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #D31219;
+  
+  /* Gráficos */
+  --chart-1: #D31219;
+  --chart-2: #B28A12;
+  --chart-3: #2D8A3C;
+  --chart-4: #000000;
+  --chart-5: #6B7280;
+  
+  /* Radio del Sistema (8px base) */
+  --radius: 0.5rem;
+  
+  /* Sidebar */
+  --sidebar: #000000;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #D31219;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #B28A12;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #1F2937;
+  --sidebar-ring: #D31219;
+}
+
+.dark {
+  --success: #34D058;
+  --success-foreground: #000000;
+  --warning: #D4A529;
+  --warning-foreground: #000000;
+  --error: #F85149;
+  --error-foreground: #000000;
+  
+  --background: #0F0F0F;
+  --foreground: #F7F7F7;
+  --card: #1A1A1A;
+  --card-foreground: #F7F7F7;
+  --popover: #1A1A1A;
+  --popover-foreground: #F7F7F7;
+  --primary: #D31219;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F7F7F7;
+  --secondary-foreground: #000000;
+  --accent: #B28A12;
+  --accent-foreground: #FFFFFF;
+  --muted: #262626;
+  --muted-foreground: #9CA3AF;
+  --destructive: #D31219;
+  --destructive-foreground: #FFFFFF;
+  --border: #374151;
+  --input: #374151;
+  --ring: #D31219;
+  --chart-1: #D31219;
+  --chart-2: #B28A12;
+  --chart-3: #2D8A3C;
+  --chart-4: #F7F7F7;
+  --chart-5: #9CA3AF;
+  --sidebar: #0F0F0F;
+  --sidebar-foreground: #F7F7F7;
+  --sidebar-primary: #D31219;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #B28A12;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #374151;
+  --sidebar-ring: #D31219;
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Inter Fallback', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-accent: var(--brand-accent);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-error: var(--error);
+  --color-error-foreground: var(--error-foreground);
+  
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  p, li {
+    @apply leading-relaxed;
+  }
+}
+
+/* Tipografía Responsive */
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  h1 { font-size: 40px; }
+  h2 { font-size: 28px; }
+  h3 { font-size: 22px; }
+}
+
+@media (min-width: 1024px) {
+  h1 { font-size: 48px; }
+  h2 { font-size: 32px; }
+  h3 { font-size: 24px; }
+}
+
+/* Utilidades del Sistema de Diseño */
+.text-body-m {
+  font-size: 16px;
+  line-height: 1.625;
+}
+.text-caption {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.text-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (min-width: 1024px) {
+  .text-body-m { font-size: 18px; }
+  .text-caption { font-size: 14px; }
+}
+
+/* Espaciado (8pt grid) */
+.section-gap > * + * { margin-top: 24px; }
+.card-gap > * + * { margin-top: 16px; }
+.element-gap > * + * { margin-top: 8px; }
+
+/* Margenes de pantalla */
+.screen-margin {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 768px) {
+  .screen-margin {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .screen-margin {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Touch targets */
+.touch-target {
+  min-height: 48px;
+  min-width: 48px;
+}
+
+/* Estados semánticos */
+.status-success {
+  background-color: rgba(45, 138, 60, 0.1);
+  color: #2D8A3C;
+  border-color: rgba(45, 138, 60, 0.2);
+}
+.status-warning {
+  background-color: rgba(178, 138, 18, 0.1);
+  color: #B28A12;
+  border-color: rgba(178, 138, 18, 0.2);
+}
+.status-error {
+  background-color: rgba(211, 18, 25, 0.1);
+  color: #D31219;
+  border-color: rgba(211, 18, 25, 0.2);
+}
