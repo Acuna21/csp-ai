@@ -132,7 +132,7 @@ export function WorkerHomeView() {
           </div>
           
           {/* Create Report Button */}
-          <Link href="/report/create" className="block">
+          <Link href="/report/new" className="block">
             <Button 
               className="w-full h-11 font-semibold gap-2"
               style={{ backgroundColor: '#D31219' }}
