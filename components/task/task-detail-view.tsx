@@ -87,7 +87,7 @@ const statusConfig: Record<string, { label: string; color: string; bgColor: stri
   pending: { label: "Pendiente", color: "#B28A12", bgColor: "rgba(178, 138, 18, 0.1)" },
   "in-progress": { label: "En Progreso", color: "#D31219", bgColor: "rgba(211, 18, 25, 0.1)" },
   completed: { label: "Completado", color: "#2D8A3C", bgColor: "rgba(45, 138, 60, 0.1)" },
-  on-hold: { label: "En Espera", color: "#6B7280", bgColor: "rgba(107, 114, 128, 0.1)" },
+  "on-hold": { label: "En Espera", color: "#6B7280", bgColor: "rgba(107, 114, 128, 0.1)" },
 }
 
 export function TaskDetailView({ taskId }: { taskId: string }) {
