@@ -153,7 +153,7 @@ export function TaskDetailView({ taskId }: { taskId: string }) {
           <div className="space-y-2">
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
-                <p className="text-label text-muted-foreground mb-2">ID de Tarea</p>
+                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2">ID de Tarea</p>
                 <h1 className="text-primary font-bold mb-3">{task.id}</h1>
                 <h2 className="text-2xl font-bold text-foreground">{task.title}</h2>
               </div>
@@ -163,7 +163,7 @@ export function TaskDetailView({ taskId }: { taskId: string }) {
             <div className="space-y-2 pt-4">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <span>Última actualización:</span>
-                <span className="font-medium text-foreground">{formatDate(task.lastUpdated)}</span>
+                <span className="font-medium text-foreground">{formatDate(task.updatedAt)}</span>
                 <span>por</span>
                 <span className="font-medium text-foreground">{task.lastUpdatedBy}</span>
               </div>
