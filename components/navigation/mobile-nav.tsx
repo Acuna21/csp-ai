@@ -2,14 +2,14 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Home, Briefcase, Plus, Settings, LayoutGrid, Layers } from "lucide-react"
+import { Home, Users, Layers, Lightbulb, LayoutGrid } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navItems = [
   { href: "/", label: "Inicio", icon: Home },
-  { href: "/worker", label: "Reportes", icon: Briefcase },
-  { href: "/report/new", label: "Nuevo", icon: Plus },
+  { href: "/requirements", label: "Requerimientos", icon: Users },
   { href: "/architecture", label: "Arquitectura", icon: Layers },
+  { href: "/collaboration", label: "Colaboración", icon: Lightbulb },
   { href: "/admin", label: "Admin", icon: LayoutGrid },
 ]
 
