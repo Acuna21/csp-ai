@@ -2,15 +2,15 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Home, Briefcase, Plus, Settings, LayoutGrid } from "lucide-react"
+import { Home, Briefcase, Plus, Settings, LayoutGrid, Layers } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 const navItems = [
   { href: "/", label: "Inicio", icon: Home },
   { href: "/worker", label: "Reportes", icon: Briefcase },
+  { href: "/architecture", label: "Arquitectura", icon: Layers },
   { href: "/admin", label: "Administración", icon: LayoutGrid },
-  { href: "/design-system", label: "Sistema de Diseño", icon: Settings },
 ]
 
 export function DesktopNav() {
