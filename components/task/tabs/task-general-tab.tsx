@@ -3,9 +3,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
-import { Progress } from "@/components/ui/progress"
 import { Separator } from "@/components/ui/separator"
-import { MapPin, AlertCircle, Weight, Zap } from "lucide-react"
+import { MapPin, AlertCircle, Weight } from "lucide-react"
 
 interface ReporterInfo {
   name: string
@@ -209,7 +208,12 @@ export function TaskGeneralTab({ task, priority, status }: GeneralTabProps) {
                 {task.weight}/10
               </span>
             </div>
-            <Progress value={task.weight * 10} className="h-2" />
+            <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
+              <div 
+                className="h-full transition-all"
+                style={{ width: `${task.weight * 10}%`, backgroundColor: '#D31219' }}
+              />
+            </div>
           </div>
 
           {/* Dates */}
