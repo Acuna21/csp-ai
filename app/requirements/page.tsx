@@ -13,22 +13,16 @@ export default function RequirementsPage() {
       color: "bg-blue-100 text-blue-900"
     },
     {
-      group: "Coordinadores",
-      icon: Target,
-      needs: ["Asignación automática optimizada", "Información completa del incidente", "Herramientas de colaboración"],
-      color: "bg-red-100 text-red-900"
-    },
-    {
       group: "Administradores",
       icon: CheckCircle,
       needs: ["Control total del sistema", "Configuración flexible", "Reportes y análisis"],
       color: "bg-green-100 text-green-900"
     },
     {
-      group: "Jefes de Área",
-      icon: AlertCircle,
-      needs: ["Supervisión de incidencias", "Métricas de desempeño", "Validación de resoluciones"],
-      color: "bg-yellow-100 text-yellow-900"
+      group: "Personal de Mantenimiento",
+      icon: Target,
+      needs: ["Recibir tareas asignadas automáticamente", "Información completa del problema", "Herramientas para reportar resolución"],
+      color: "bg-purple-100 text-purple-900"
     }
   ]
 
@@ -56,7 +50,7 @@ export default function RequirementsPage() {
       {/* Stakeholders */}
       <div className="space-y-6">
         <h2 className="text-2xl font-bold text-foreground">Análisis de Stakeholders</h2>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {stakeholders.map((stakeholder) => {
             const Icon = stakeholder.icon
             return (
@@ -133,8 +127,8 @@ export default function RequirementsPage() {
         <CardContent className="space-y-4">
           <div className="grid md:grid-cols-3 gap-4">
             <div className="p-4 bg-muted rounded-lg">
-              <p className="font-bold text-foreground">4 Grupos Stakeholder</p>
-              <p className="text-sm text-muted-foreground">Cada uno con necesidades distintas</p>
+              <p className="font-bold text-foreground">3 Grupos Stakeholder</p>
+              <p className="text-sm text-muted-foreground">Estudiantes, Administradores, Mantenimiento</p>
             </div>
             <div className="p-4 bg-muted rounded-lg">
               <p className="font-bold text-foreground">2 Requerimientos Críticos</p>
